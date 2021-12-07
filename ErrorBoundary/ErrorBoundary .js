@@ -1,12 +1,11 @@
-import { Component, Children, cloneElement, PureComponent } from "react";
+import { Component } from "react";
+import { createPortal } from "react-dom";
 import { ErrorBoundaryContext } from "./Context/Context";
-import tobi from "../assets/images/tobi.gif";
+import NotificationError from "./NotificationError";
 
 class ErrorBoundary extends Component {
   constructor(props) {
     super(props);
-
-    let report = {};
 
     this.state = {
       hasError: false,
@@ -17,6 +16,7 @@ class ErrorBoundary extends Component {
   static getDerivedStateFromError(error) {
     return { hasError: true };
   }
+
   triggerError = (data, window, name) => {
     this.report = {
       entryData: data,
@@ -35,17 +35,17 @@ class ErrorBoundary extends Component {
       message: error.message,
     };
 
-    alt.emit("View:Error", JSON.stringify(obj));
+    alt.emit("View:Error", obj);
   }
 
   render() {
+    const portal = document.getElementById("portal");
+
     return (
       <ErrorBoundaryContext.Provider value={this.triggerError}>
-        {this.state.hasError ? (
-          <img src={tobi} alt="" width="150" height="150" />
-        ) : (
-          this.props.children
-        )}
+        {this.state.hasError
+          ? createPortal(<NotificationError />, portal)
+          : this.props.children}
       </ErrorBoundaryContext.Provider>
     );
   }

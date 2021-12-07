@@ -1,0 +1,54 @@
+@keyframes fade {
+  0% {
+    bottom: -100%;
+  }
+  20% {
+    bottom: 20px;
+  }
+  80% {
+    bottom: 20px;
+  }
+  100% {
+    bottom: -100%;
+  }
+}
+
+@keyframes progress {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.wrapper {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: -150%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #303038;
+  border: 2px solid rgba(218, 87, 83, 0.24);
+  box-sizing: border-box;
+  border-radius: 8px;
+  height: 70px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 22px;
+  padding: 0 16px;
+  color: #da5753;
+  animation: fade 5000ms ease-in-out;
+}
+
+.progress {
+  position: absolute;
+  bottom: 0;
+  height: 5px;
+  width: 100%;
+  opacity: 0.5;
+  background: #6764f1;
+  animation: progress 5000ms ease-in-out;
+}
