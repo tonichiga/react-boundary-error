@@ -1,0 +1,19 @@
+{
+  "name": "react-easy-boundary",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tonichiga/react-boundary-error.git"
+  },
+  "author": "toni chiga",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tonichiga/react-boundary-error/issues"
+  },
+  "homepage": "https://github.com/tonichiga/react-boundary-error#readme"
+}
